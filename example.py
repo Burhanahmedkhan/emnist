@@ -1,19 +1,35 @@
-from src.predictor import Predictor
-from src.emnist_data_handler import read_emnist
 import numpy as np
 
-emnist_file = "../emnist-dataset/"
+from src.predictor import Predictor
+from src.emnist_data_handler import read_emnist
 
-predictor = Predictor("larger_cnn")
+
+emnist_file = "../emnist-dataset/"
 
 (x_train, y_train), (x_test, y_test), mapping = read_emnist(emnist_file)
 
 
-for x in range(100, 200):
-    a = x_train[x]
-    a_label = y_train[x]
-    a = a.reshape(1,1,28,28)
-    if predictor.predict(a) == chr(int(mapping[str(a_label)])):
-        print(x, "OK")
-    else:
-        print(x, "NOT OK")
+def test_model(model_name):
+    model = Predictor(model_name)
+
+    correct = 0
+    wrong = 0
+
+    for x in range(len(y_test)):
+        a = x_train[x]
+        a_label = y_train[x]
+        if model_name == "baseline_nn":
+            a = a.reshape(1, 784)
+        else:
+            a = a.reshape(1, 1, 28, 28)
+        if model.predict(a) == chr(int(model.mapping[str(a_label)])):
+            correct += 1
+        else:
+            wrong += 1
+
+    print(model_name + " - accuracy: %.2lf%%" % (100*correct/(correct+wrong)))
+
+
+print(test_model("simple_cnn"))
+print(test_model("larger_cnn"))
+print(test_model("mnist_nn"))

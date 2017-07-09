@@ -51,7 +51,7 @@ def read_emnist(emnist_dir):
 
     with open(MAPPING, "r") as f:
         mapping = f.readlines()
-        mapping = {x.split()[0]: x.split()[1] for x in mapping}
+        mapping = {str(x.split()[0]): str(x.split()[1]) for x in mapping}
 
     # Convert to float32
     train_images = train_images.astype('float32')
