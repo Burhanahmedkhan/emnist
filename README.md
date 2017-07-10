@@ -7,10 +7,12 @@ This project is intended to train and explore some neural net models using the [
 
 The project consists of 2 parts:
 
-    * Trainning scripts: baseline_nn.py, simple_cnn.py, larger_cnn.py and mnist_nn.py
+   Trainning scripts: baseline_nn.py, simple_cnn.py, larger_cnn.py and mnist_nn.py.
+      
       Used to train the models.
 
-    * Predictor class: [predictor.py](https://github.com/filipecasal/emnist/blob/master/src/predictor.py)
+   Predictor class: [predictor.py](https://github.com/filipecasal/emnist/blob/master/src/predictor.py)
+      
       A class that can be started with the trained models and be used in other scripts.
 
 
@@ -26,14 +28,14 @@ The project consists of 2 parts:
   * Can be downloaded [here](http://biometrics.nist.gov/cs_links/EMNIST/gzip.zip).
 
 #### Python 3.5
-  * requirements.txt
-   - Keras==2.0.6
-   * tensorflow==1.2.1
-   * Theano==0.9.0
-   * Pillow==4.2.1
-   * h5py==2.7.0
-   * boto==2.48.0
-   * Flask==0.12.2
+##### requirements.txt
+  * Keras==2.0.6
+  * tensorflow==1.2.1
+  * Theano==0.9.0
+  * Pillow==4.2.1
+  * h5py==2.7.0
+  * boto==2.48.0
+  * Flask==0.12.2
 
 #### src/conf.py
   * Project Path
