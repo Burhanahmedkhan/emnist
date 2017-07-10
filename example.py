@@ -1,12 +1,8 @@
 import numpy as np
+import argparse
 
 from src.predictor import Predictor
 from src.emnist_data_handler import read_emnist
-
-
-emnist_file = "../emnist-dataset/"
-
-(x_train, y_train), (x_test, y_test), mapping = read_emnist(emnist_file)
 
 
 def test_model(model_name):
@@ -27,7 +23,15 @@ def test_model(model_name):
     print(model_name + " - accuracy: %.2lf%%" % (100*correct/(correct+wrong)))
 
 
-# Evaluate models
-print(test_model("simple_cnn"))
-print(test_model("larger_cnn"))
-print(test_model("mnist_nn"))
+if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-f', '--file', type=str, help='EMNIST Dataset folder')
+    args = parser.parse_args()
+
+    (x_train, y_train), (x_test, y_test), mapping = read_emnist(args.file)
+
+    # Evaluate models
+    print(test_model("simple_cnn"))
+    print(test_model("larger_cnn"))
+    print(test_model("mnist_nn"))
