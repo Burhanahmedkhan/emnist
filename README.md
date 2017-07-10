@@ -50,7 +50,7 @@ The project consists of 2 parts:
 
 #### Training the neural nets (simple_cnn.py, larger_cnn.py, mnist_nn.py, baseline_nn.py)
 
-A training script for each model. Models will be saved at models folder.
+A training script for each model. Models will be saved on models folder.
 
        usage:  *.py -f -m  [--epochs EPOCHS]
 
